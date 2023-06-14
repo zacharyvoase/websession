@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "start": "npx @11ty/eleventy --serve",
+    "build": "npx @11ty/eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11tyrocks/eleventy-plugin-lightningcss": "^1.1.2",
+    "highlight.js": "^11.8.0",
+    "lightningcss": "^1.20.0",
+    "markdown-it": "^13.0.1",
+    "markdown-it-attrs": "^4.1.6",
+    "markdown-it-highlightjs": "^4.0.1",
+    "normalize.css": "^8.0.1"
+  }
+}
