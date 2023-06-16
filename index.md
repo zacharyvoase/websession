@@ -18,6 +18,8 @@ Please get in touch if you have questions, comments, or suggestions; I'll
 update this page once I find a good locus for further discussion.
 {.note}
 
+${toc}
+
 WebSession is a proposed replacement for cookies when establishing and
 maintaining user sessions in a Web browser. Its goals are to be more secure,
 offer more user control, and protect privacy better than cookies, while
@@ -145,12 +147,12 @@ user, thwarting even active MITM attacks.
 
 ## Protocol Description
 
-### 1) Initial Request
+### Initial Request
 
 The browser makes a standard GET request to the website. In this case we'll
 assume the URL is `https://example.com/`.
 
-### 2) Server Challenge
+### Server Challenge
 
 The server generates and stores an ephemeral keypair for DHKE, hereby referred
 to as `Spub` and `Spriv`. This will most likely be a point on the NIST P-256 or
@@ -196,7 +198,7 @@ Would result in this HTTP response:
 WWW-Authenticate: WebSession pGNhbGdmWDI1NTE5Y2V4cBpkdLgUYWhnU0hBLTI1NmFzWCBS4aZQYgwZbwKZMNi-VO-sfLSkf_zASwx3mbS-5fAoyA
 ```
 
-### 3) Client Response
+### Client Response
 
 At this point the browser can decide whether to initiate a session or not,
 either based on interactive user feedback, previous behavior, or prior
@@ -244,7 +246,7 @@ GET / HTTP/1.1
 Authorization: WebSession 8qbsNWTO9bWTSSKPy6anrZ0wFS_OCLpBU6z8sMCYIXc.pGFjWCECti-THEz2E5V2GVho6BlS4hYCc2iSIQM3OAigEOIPqrRhc1ghAtuVyC-gkXNvLDiI3EX3vsoKr3LouSNokIwh2kbEr636YW9zaHR0cHM6Ly9leGFtcGxlLmNvbWFuWCCOCJPacqTehDoux9VHjkZW_1r9lqV2gWIjK81uhqCOqg
 ```
 
-### 4) Server Validation
+### Server Validation
 
 The server validates an incoming request by:
 
