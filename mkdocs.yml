@@ -1,0 +1,25 @@
+site_name: WebSession
+site_url: https://websession.dev/
+site_description: A protocol for secure browser sessions on the World Wide Web
+site_author: Zachary Voase
+repo_url: https://github.com/zacharyvoase/websession
+copyright: CC0
+nav:
+  - WebSession: index.md
+theme:
+  name: material
+  font: false
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+extra_css:
+  - stylesheets/extra.css
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.superfences
+  - smarty
+  - toc:
+      permalink: true

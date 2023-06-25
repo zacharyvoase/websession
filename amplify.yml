@@ -1,0 +1,15 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - python3 -m pip install -r requirements.txt
+    build:
+      commands:
+        - mkdocs build
+  artifacts:
+    baseDirectory: site/
+    files:
+      - '**/*'
+  cache:
+    paths: []

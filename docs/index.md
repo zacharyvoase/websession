@@ -1,10 +1,7 @@
----
-layout: default.njk
----
-
 # WebSession
 
-## A Protocol for Secure Browser Sessions {.subtitle}
+A protocol for secure browser sessions on the World Wide Web
+{#subtitle}
 
 by Zachary Voase &lt;<a href="mailto:zack@meat.io">zack@meat.io</a>&gt;
 {#author}
@@ -12,13 +9,14 @@ by Zachary Voase &lt;<a href="mailto:zack@meat.io">zack@meat.io</a>&gt;
 Last update: <time datetime="2023-06-14">2023-06-14</time>
 {#date}
 
-This is a work in progress, based on my talk at Identiverse 2023. It's intended
-to be a starting point for discussion, not a complete or unambiguous spec.
-Please get in touch if you have questions, comments, or suggestions; I'll
-update this page once I find a good locus for further discussion.
-{.note}
+!!! note
 
-${toc}
+    This is a work in progress, based on my talk at Identiverse 2023. It's intended
+    to be a starting point for discussion, not a complete or unambiguous spec.
+    Please get in touch if you have questions, comments, or suggestions; I'll
+    update this page once I find a good locus for further discussion.
+
+## Introduction
 
 WebSession is a proposed replacement for cookies when establishing and
 maintaining user sessions in a Web browser. Its goals are to be more secure,
@@ -34,9 +32,9 @@ in), but still need to maintain state across requests. Examples include
 anonymous shopping carts and 'guest' checkout, personalization without creating
 a user account, A/B testing, analytics, and more.
 
-### What's wrong with cookies?
+## What's wrong with cookies?
 
-#### Security
+### Security
 
 Currently when you log into a website, the server generates a unique session
 ID and stores it in your browser as a **cookie**. On every subsequent request,
@@ -71,7 +69,7 @@ an eavesdropper on the connection after TLS termination could result in a
 cookie being stolen. It is difficult to distinguish an attacker using a stolen
 cookie from the legitimate user to whom it was originally issued.
 
-#### Privacy, User Control, and User Experience
+### Privacy, User Control, and User Experience
 
 Cookies were invented in 1994, and started out as a generic
 mechanism for persistent key-value state which were quickly
@@ -97,9 +95,9 @@ JavaScript. A native session management solution should be able to request that
 the browser clear a session in the case of device lock, the user navigating
 away, etc.
 
-### How would WebSession solve these problems?
+## How would WebSession solve these problems?
 
-#### Security
+### Security
 
 WebSession does not rely on bearer tokens. Instead, the browser and server
 agree on a shared secret at the beginning of the session, using [Diffie-Hellman
@@ -120,7 +118,7 @@ necessary. Even so, if a 'bad' endpoint receives a valid WebSession header, it
 is limited to forging a single request, rather than having a reusable session
 cookie that may allow an unbounded number of impersonated requests.
 
-#### Privacy
+### Privacy
 
 WebSession tokens are opaque identifiers, unlinkable back to real-world user
 identities. Without extra work, they only identify the browser instance
@@ -135,7 +133,7 @@ to clear a session on inactivity, device lock, navigation away from the page,
 etc. This is best done via a browser-integrated, purposeful protocol for
 session management rather than ad hoc JavaScript on every site.
 
-### What else could WebSession provide?
+## What else could WebSession provide?
 
 Typically a browser session is identified with a particular human user, and one
 of the most exciting new standards on the web today is [WebAuthn][], which

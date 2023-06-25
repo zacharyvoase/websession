@@ -1,0 +1,21 @@
+:root {
+    --md-text-font: system-ui;
+    --md-code-font: monospace;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+h1#websession {
+    margin-block-end: 1rem;
+}
+
+#subtitle {
+    margin-block-start: 0;
+    font-size: 1.333em;
+}
+
+pre, code, tt {
+    font-size-adjust: 0.55;
+}
